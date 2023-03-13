@@ -1,2 +1,2 @@
 # autoimmune_model
-This repository contains the code for modeling T cell development and persistent infection that may lead to autoimmunity. 
+This repository contains the code for modeling T cell development and persistent infection that may lead to autoimmunity. The /scripts folder contains the code for the simulation. The peptide_files zip folder contains csv files of foreign IAb peptides with corresponding IAb mouse peptide homologs. The title of each file is the Mycobacterium tuberculosis IAb-binding 15mer peptide followed by its 9mer core, and in the csv file contains the corresponding IAb 15mer mouse peptide and its 9mer core.

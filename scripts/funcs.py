@@ -119,17 +119,7 @@ def selection(A, MJ_20, pep_set, N, M):
     return thymo_min_energy
 
 #Functions to determine activated thymocytes
-
-def activation_func(alpha, E_n, E_i):
-    #vectorized function that takes in E_i between peptide and tcr, outputs probability of activation
-    #inputs: alpha = slope of activation curve
-    #        E_n = negative selection threshold (used to set activation curve)
-    #        E_i = interaction energy
-    #output: scored interaction energy
-    
-    return 1/(1 + np.exp(-(E_n-E_i)/alpha))
-
-def pep_exposure(pep_num,pep_set, thymo_rep, alpha, N, E_n, MJ_20, thres):
+def pep_exposure(pep_num,pep_set, thymo_rep,N, E_n, MJ_20):
     #returns a matrix of activated t cells given a set of self peptides
     #inputs: pep_num = number of peptides to expose repertoire
     #        pep_set = set of peptides to choose from
@@ -143,16 +133,14 @@ def pep_exposure(pep_num,pep_set, thymo_rep, alpha, N, E_n, MJ_20, thres):
     random_idx = np.sort(np.random.choice(np.arange(N), pep_num, replace=False))
     pep_set = pep_set[random_idx, :]
     energies = (thymo_rep.dot(MJ_20.dot(pep_set.T))).todense()
-    prob_mat = activation_func(alpha, E_n, energies)
-    act_mat = np.asarray(np.greater(prob_mat, thres))
+    act_mat = np.asarray(np.less(energies, E_n))
     return act_mat, energies
 
 
 def pep_exposure_given(pep_set, thymo_rep, alpha, E_n, MJ_20, thres):
     #returns a matrix of activated t cells given a set of self peptides
     energies = (thymo_rep.dot(MJ_20.dot(pep_set.T))).todense()
-    prob_mat = activation_func(alpha, E_n, energies)
-    act_mat = np.asarray(np.greater(prob_mat, thres))
+    act_mat = np.asarray(np.less(energies, E_n))
     return act_mat, energies
 
     

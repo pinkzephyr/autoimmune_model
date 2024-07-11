@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: How persistent infection overcomes peripheral tolerance mechanisms to cause T cell–mediated autoimmune disease
+authors:
+  - name: Rose Yin
+  - name: Samuel Melton
+  - name: Eric S. Huseby
+  - name: Mehran Kardar
+    orcid: https://orcid.org/0000-0002-1112-5912
+  - name: Arup K. Chakraborty
+version: 1.0.0
+doi: 10.1073/pnas.2318599121
+license: MIT
+repository-code: https://github.com/pinkzephyr/autoimmune_model

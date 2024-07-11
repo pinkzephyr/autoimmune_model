@@ -1,9 +1,10 @@
 import numpy as np
 import parameters as pm
-import utils
+import utils as funcs
 from scipy.sparse import lil_matrix
 from scipy.sparse import block_diag
 import argparse
+import os
 
 parser = argparse.ArgumentParser(description='Model probability of autoimmunity given persistent infection.')
 parser.add_argument('--t-num', type=int,default=1000000, dest='immature_T_num',
@@ -70,11 +71,11 @@ E_self=E_n+E_gap
 results={}
 
 #getting self and foreign peptides
-self_pep_name=os.path.join(os.path.dirname(__file__), '..', 'data', 'self_pep_name')
+self_pep_name=os.path.join(os.path.dirname(__file__), '..', 'data', self_pep_name)
 self_rep_tot=np.load(self_pep_name, allow_pickle=True)
 self_rep=funcs.conv_rep(self_rep_tot[:N,:], pep_len)
 
-for_pep_name=os.path.join(os.path.dirname(__file__), '..', 'data', 'for_pep_name')
+for_pep_name=os.path.join(os.path.dirname(__file__), '..', 'data', for_pep_name)
 for_rep_tot=np.load(for_pep_name, allow_pickle=True)
 for_rep=funcs.conv_rep(for_rep_tot[:N_f,:], pep_len)
 

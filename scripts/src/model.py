@@ -1,6 +1,6 @@
 import numpy as np
 import parameters as pm
-import funcs
+import utils
 from scipy.sparse import lil_matrix
 from scipy.sparse import block_diag
 import argparse

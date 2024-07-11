@@ -70,9 +70,11 @@ E_self=E_n+E_gap
 results={}
 
 #getting self and foreign peptides
+self_pep_name=os.path.join(os.path.dirname(__file__), '..', 'data', 'self_pep_name')
 self_rep_tot=np.load(self_pep_name, allow_pickle=True)
 self_rep=funcs.conv_rep(self_rep_tot[:N,:], pep_len)
 
+for_pep_name=os.path.join(os.path.dirname(__file__), '..', 'data', 'for_pep_name')
 for_rep_tot=np.load(for_pep_name, allow_pickle=True)
 for_rep=funcs.conv_rep(for_rep_tot[:N_f,:], pep_len)
 

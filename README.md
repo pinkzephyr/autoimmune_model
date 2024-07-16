@@ -10,10 +10,10 @@ This repository contains the code for the paper "How persistent infection overco
     cd autoimmune_model
     ```
 
-2. Create and activate a virtual environment (optional but recommended):
+2. Create and activate a virtual environment:
     ```bash
     python -m venv model
-    source model/bin/activate  # On Windows use `venv\Scripts\activate`
+    source model/bin/activate  
     ```
 
 3. Install the dependencies:

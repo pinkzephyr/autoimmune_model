@@ -184,8 +184,7 @@ for trial_num in np.arange(0,trials):
         act_for_mat[for_num, trial_num]=act_ind_efor.size
         act_new_mat[for_num, trial_num]=act_ind_ebefore.size
         for_num+=1
-    avg_time=avg_time/trials
-
+    
     self_act_dist_tot.append(self_act_dist)
     for_act_dist_tot.append(for_act_dist)
 
